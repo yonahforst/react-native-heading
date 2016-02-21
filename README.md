@@ -11,18 +11,21 @@ const ReactNativeHeading = require('react-native-Heading');
 
 //....
   componentDidMount() {
-    this._headingCallback = Animated.event([{heading: this.state.animatedHeading}]);
-    DeviceEventEmitter.addListener('headingUpdated', this._headingCallback);
     ReactNativeHeading.start(1)
-		.then(didStart => {
-			this.setState({
-				headingIsSupported: didStart,
-			})
+	.then(didStart => {
+		this.setState({
+			headingIsSupported: didStart,
 		})
+	})
+	
+    DeviceEventEmitter.addListener('headingUpdated', data => {
+    	console.log('New heading is:', data.heading);
+    });
+
   }
   componentWillUnmount() {
-  	DeviceEventEmitter.removeListener('headingUpdated', this._headingCallback);
   	ReactNativeHeading.stop();
+  	DeviceEventEmitter.removeListener('headingUpdated');
   }
 //...
 ```
