@@ -1,0 +1,12 @@
+{
+  "name": "react-native-heading",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joshblour/react-native-heading.git"
+  },
+  "license": "MIT",
+  "keywords": ["react-native", "react-component"],
+  "main": "ReactNativeHeading",
+  "author": "Yonah Forst <yonaforst@hotmail.com>"
+}
