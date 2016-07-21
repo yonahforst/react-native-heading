@@ -97,7 +97,7 @@ public class MainActivity extends ReactActivity {
     protected List<ReactPackage> getPackages() {
         return Arrays.<ReactPackage>asList(
             new MainReactPackage(),
-            new ReactNativeDiscoveryPackage(this) // <------ add the package
+            new ReactNativeDiscoveryPackage() // <------ add the package
         );
     }
 

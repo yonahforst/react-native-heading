@@ -1,6 +1,7 @@
 package com.joshblour.reactnativeheading;
 
 import android.app.Activity;
+import android.app.Application;
 
 import com.facebook.react.ReactPackage;
 import com.facebook.react.bridge.JavaScriptModule;
@@ -15,16 +16,12 @@ import java.util.List;
 
 public class ReactNativeHeadingPackage implements ReactPackage {
 
-    private Activity mActivity;
-
-    public ReactNativeHeadingPackage(Activity activityContext) {
-        mActivity = activityContext;
-    }
+    public ReactNativeHeadingPackage() {}
 
     @Override
     public List<NativeModule> createNativeModules(ReactApplicationContext reactContext) {
         List<NativeModule> modules = new ArrayList<>();
-        modules.add(new ReactNativeHeadingModule(reactContext, mActivity));
+        modules.add(new ReactNativeHeadingModule(reactContext));
         return modules;    }
 
     @Override

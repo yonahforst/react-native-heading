@@ -34,7 +34,7 @@ import java.util.TimeZone;
 public class ReactNativeHeadingModule extends ReactContextBaseJavaModule implements SensorEventListener {
 
 
-    private static Activity mActivity;
+    private static Context mApplicationContext;
     private int mAzimuth = 0; // degree
     private int mFilter = 5;
     private SensorManager mSensorManager;
@@ -42,9 +42,9 @@ public class ReactNativeHeadingModule extends ReactContextBaseJavaModule impleme
     private float[] orientation = new float[3];
     private float[] rMat = new float[9];
 
-    public ReactNativeHeadingModule(ReactApplicationContext reactContext, Activity activity) {
+    public ReactNativeHeadingModule(ReactApplicationContext reactContext) {
         super(reactContext);
-        mActivity = activity;
+        mApplicationContext = reactContext.getApplicationContext();
     }
 
     @Override
@@ -59,7 +59,7 @@ public class ReactNativeHeadingModule extends ReactContextBaseJavaModule impleme
     public void start(int filter, Promise promise) {
 
         if (mSensorManager == null) {
-            mSensorManager = (SensorManager) mActivity.getSystemService(Context.SENSOR_SERVICE);
+            mSensorManager = (SensorManager) mApplicationContext.getSystemService(Context.SENSOR_SERVICE);
         }
 
         if (mSensor == null) {

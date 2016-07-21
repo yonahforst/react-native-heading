@@ -45,8 +45,9 @@ RCT_REMAP_METHOD(start, start:(int)headingFilter resolver:(RCTPromiseResolveBloc
         self.locManager.headingFilter = headingFilter;
         [self.locManager startUpdatingHeading];
         resolve(@YES);
+    } else {
+        resolve(@NO);
     }
-    resolve(@NO);
 }
 
 RCT_EXPORT_METHOD(stop) {
