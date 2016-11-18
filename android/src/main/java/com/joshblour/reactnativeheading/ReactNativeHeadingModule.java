@@ -20,8 +20,6 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
-import com.joshblour.discovery.BLEUser;
-import com.joshblour.discovery.Discovery;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -37,7 +35,7 @@ public class ReactNativeHeadingModule extends ReactContextBaseJavaModule impleme
     private static Context mApplicationContext;
     private int mAzimuth = 0; // degree
     private int newAzimuth = 0; // degree
-    private float mFilter = 5;
+    private int mFilter = 5;
     private SensorManager mSensorManager;
     private Sensor mSensor;
     private float[] orientation = new float[3];
