@@ -20,8 +20,6 @@ import com.facebook.react.bridge.ReactMethod;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
-import com.joshblour.discovery.BLEUser;
-import com.joshblour.discovery.Discovery;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -37,7 +35,7 @@ public class ReactNativeHeadingModule extends ReactContextBaseJavaModule impleme
     private static Context mApplicationContext;
     private int mAzimuth = 0; // degree
     private int newAzimuth = 0; // degree
-    private float mFilter = 5;
+    private int mFilter = 5;
     private SensorManager mSensorManager;
     private Sensor mSensor;
     private float[] orientation = new float[3];
@@ -83,7 +81,7 @@ public class ReactNativeHeadingModule extends ReactContextBaseJavaModule impleme
             // calculate th rotation matrix
             SensorManager.getRotationMatrixFromVector(rMat, event.values);
             // get the azimuth value (orientation[0]) in degree
-            newAzimuth = (((( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[0] ) + 360 ) % 360) -
+            newAzimuth = (int) (((( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[0] ) + 360 ) % 360) -
                           ( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[2] ))) +360) % 360;
             //dont react to changes smaller than the filter value
             if (Math.abs(mAzimuth - newAzimuth) < mFilter) {
@@ -97,7 +95,7 @@ public class ReactNativeHeadingModule extends ReactContextBaseJavaModule impleme
             mAzimuth = newAzimuth;
             // Log.e("Azimuth",
             //   String.valueOf(newAzimuth));
-            //
+            
         }
     }
 
