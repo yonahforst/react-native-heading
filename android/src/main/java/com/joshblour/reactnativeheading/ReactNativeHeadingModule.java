@@ -83,8 +83,10 @@ public class ReactNativeHeadingModule extends ReactContextBaseJavaModule impleme
             // calculate th rotation matrix
             SensorManager.getRotationMatrixFromVector(rMat, event.values);
             // get the azimuth value (orientation[0]) in degree
+
             newAzimuth = (int) ((((( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[0] ) + 360 ) % 360) -
                           ( Math.toDegrees( SensorManager.getOrientation( rMat, orientation )[2] ))) +360) % 360);
+
             //dont react to changes smaller than the filter value
             if (Math.abs(mAzimuth - newAzimuth) < mFilter) {
                 return;
