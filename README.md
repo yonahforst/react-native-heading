@@ -45,9 +45,9 @@ import ReactNativeHeading from 'react-native-heading';
 
 ## Setup
 
-````
-npm install --save react-native-heading
-````
+```
+yarn add https://github.com/zsajjad/react-native-heading.git
+```
 
 ### iOS
 * Run open node_modules/react-native-heading
