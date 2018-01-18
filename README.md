@@ -5,7 +5,7 @@ Get device heading information on iOS or Android
 Report back device orientation in degrees, 0-360, with 0 being North.
 
 #### Example
-```java
+```javascript
 import { DeviceEventEmitter } from 'react-native';
 import ReactNativeHeading from 'react-native-heading';
 
