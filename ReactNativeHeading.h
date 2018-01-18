@@ -6,9 +6,8 @@
 //  Copyright © 2016 Yonah Forst. All rights reserved.
 //
 #import <React/RCTBridgeModule.h>
+#import <React/RCTEventEmitter.h>
 
-#import <Foundation/Foundation.h>
-
-@interface ReactNativeHeading : NSObject <RCTBridgeModule>
+@interface ReactNativeHeading : RCTEventEmitter <RCTBridgeModule>
 
 @end

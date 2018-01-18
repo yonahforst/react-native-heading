@@ -51,9 +51,6 @@ public class ReactNativeHeadingModule extends ReactContextBaseJavaModule impleme
         return "ReactNativeHeading";
     }
 
-
-
-
     @ReactMethod
     public void start(int filter, Promise promise) {
 
