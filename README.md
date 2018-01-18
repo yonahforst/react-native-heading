@@ -1,13 +1,13 @@
 # React Native Heading
 Get device heading information on iOS or Android
 
-##What
+## What
 Report back device orientation in degrees, 0-360, with 0 being North.
 
-####Example
+#### Example
 ```java
-const { DeviceEventEmitter } = require('react-native');
-const ReactNativeHeading = require('react-native-heading');
+import { DeviceEventEmitter } from 'react-native';
+import ReactNativeHeading from 'react-native-heading';
 
 //....
   componentDidMount() {
@@ -18,8 +18,8 @@ const ReactNativeHeading = require('react-native-heading');
 		})
 	})
 	
-    DeviceEventEmitter.addListener('headingUpdated', data => {
-    	console.log('New heading is:', data.heading);
+    DeviceEventEmitter.addListener('headingUpdated', heading => {
+    	console.log('New heading is:', heading);
     });
 
   }
@@ -31,25 +31,25 @@ const ReactNativeHeading = require('react-native-heading');
 ```
 
 
-####API
+#### API
 
 `start(filter)` - Start receiving heading updates. Accepts an optional filter param (int) to ignore heading changes less than the spcified threshold. The default value is 5. Returns a promise which can be used to determine if heading updates are suported by the device.
 
 `stop` - Stop receiving heaing updates (don't forget to remove the `headingUpdated` listener)
 
 
-##Setup
+## Setup
 
 ````
 npm install --save react-native-heading
 ````
 
-###iOS
+### iOS
 * Run open node_modules/react-native-heading
 * Drag ReactNativeHeading.xcodeproj into your Libraries group
 
-###Android
-#####Step 1 - Update Gradle Settings
+### Android
+##### Step 1 - Update Gradle Settings
 
 ```
 // file: android/settings.gradle
@@ -58,7 +58,7 @@ npm install --save react-native-heading
 include ':react-native-heading'
 project(':react-native-heading').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-heading/android')
 ```
-#####Step 2 - Update Gradle Build
+##### Step 2 - Update Gradle Build
 
 ```
 // file: android/app/build.gradle
@@ -69,7 +69,7 @@ dependencies {
     compile project(':react-native-heading')
 }
 ```
-#####Step 3 - Register React Package
+##### Step 3 - Register React Package
 ```
 ...
 import com.joshblour.reactnativeheading.ReactNativeHeadingPackage; // <--- import
