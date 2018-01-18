@@ -8,9 +8,9 @@
 
 #import "ReactNativeHeading.h"
 
-#import "RCTBridge.h"
-#import "RCTConvert.h"
-#import "RCTEventDispatcher.h"
+#import <React/RCTBridge.h>
+#import <React/RCTConvert.h>
+#import <React/RCTEventEmitter.h>
 #import <CoreLocation/CoreLocation.h>
 
 
@@ -54,6 +54,10 @@ RCT_EXPORT_METHOD(stop) {
     [self.locManager stopUpdatingHeading];
 }
 
+- (NSArray<NSString *> *)supportedEvents {
+    return @[@"headingUpdated"];
+}
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
     if (newHeading.headingAccuracy < 0)
         return;
@@ -62,9 +66,7 @@ RCT_EXPORT_METHOD(stop) {
     CLLocationDirection heading = ((newHeading.trueHeading > 0) ?
                                    newHeading.trueHeading : newHeading.magneticHeading);
     
-    NSDictionary *headingEvent = @{@"heading": @(heading)};
-    
-    [self.bridge.eventDispatcher sendDeviceEventWithName:@"headingUpdated" body:headingEvent];
+    [self sendEventWithName:@"headingUpdated" body:@(heading)];
 }
 
 @end
