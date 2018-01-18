@@ -6,8 +6,8 @@ Report back device orientation in degrees, 0-360, with 0 being North.
 
 #### Example
 ```java
-const { DeviceEventEmitter } = require('react-native');
-const ReactNativeHeading = require('react-native-heading');
+import { DeviceEventEmitter } from 'react-native';
+import ReactNativeHeading from 'react-native-heading';
 
 //....
   componentDidMount() {
@@ -18,8 +18,8 @@ const ReactNativeHeading = require('react-native-heading');
 		})
 	})
 	
-    DeviceEventEmitter.addListener('headingUpdated', data => {
-    	console.log('New heading is:', data.heading);
+    DeviceEventEmitter.addListener('headingUpdated', heading => {
+    	console.log('New heading is:', heading);
     });
 
   }
