@@ -6,11 +6,12 @@ Report back device orientation in degrees, 0-360, with 0 being North.
 
 #### Example
 ```javascript
-import { DeviceEventEmitter } from 'react-native';
+import { NativeEventEmitter } from 'react-native';
 import ReactNativeHeading from '@zsajjad/react-native-heading';
 
 //....
   componentDidMount() {
+    this.listener = new NativeEventEmitter(ReactNativeHeading)
     ReactNativeHeading.start(1)
 	.then(didStart => {
 		this.setState({
@@ -18,14 +19,14 @@ import ReactNativeHeading from '@zsajjad/react-native-heading';
 		})
 	})
 	
-    DeviceEventEmitter.addListener('headingUpdated', heading => {
+    this.listener.addListener('headingUpdated', heading => {
     	console.log('New heading is:', heading);
     });
 
   }
   componentWillUnmount() {
   	ReactNativeHeading.stop();
-  	DeviceEventEmitter.removeAllListeners('headingUpdated');
+  	this.listener.removeAllListeners('headingUpdated');
   }
 //...
 ```
