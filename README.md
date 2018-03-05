@@ -7,7 +7,7 @@ Report back device orientation in degrees, 0-360, with 0 being North.
 #### Example
 ```javascript
 import { DeviceEventEmitter } from 'react-native';
-import ReactNativeHeading from 'react-native-heading';
+import ReactNativeHeading from '@zsajjad/react-native-heading';
 
 //....
   componentDidMount() {
@@ -45,8 +45,9 @@ yarn add https://github.com/zsajjad/react-native-heading.git
 ```
 
 ### iOS
-* Run open node_modules/react-native-heading
-* Drag ReactNativeHeading.xcodeproj into your Libraries group
+* Run open node_modules/@zsajjad/react-native-heading
+* Drag ReactNativeHeading.xcodeproj into your Libraries group of XCode's project navigator
+* In XCode add Libraries/ReactNativeHeading.xcodeproj/Products/libReactNativeHeading.a to the "Link Binary with Libraries" section of the Build Phases 
 
 ### Android
 ##### Step 1 - Update Gradle Settings
@@ -56,7 +57,7 @@ yarn add https://github.com/zsajjad/react-native-heading.git
 ...
 
 include ':react-native-heading'
-project(':react-native-heading').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-heading/android')
+project(':react-native-heading').projectDir = new File(rootProject.projectDir, '../node_modules/@zsajjad/react-native-heading/android')
 ```
 ##### Step 2 - Update Gradle Build
 
