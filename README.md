@@ -47,7 +47,7 @@ import ReactNativeHeading from 'react-native-heading';
 ## Setup
 
 ```
-yarn add https://github.com/joshblour/react-native-heading.git
+yarn add react-native-heading
 ```
 
 ### iOS
