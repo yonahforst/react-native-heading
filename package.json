@@ -5,6 +5,8 @@
     "type": "git",
     "url": "https://github.com/joshblour/react-native-heading.git"
   },
+  "homepage": "https://github.com/joshblour/react-native-heading.git",
+  "summary": "RN Package for head sensor detection",
   "license": "MIT",
   "keywords": ["react-native", "react-component"],
   "main": "ReactNativeHeading",
