@@ -54,6 +54,11 @@ RCT_EXPORT_METHOD(stop) {
     [self.locManager stopUpdatingHeading];
 }
 
++ (BOOL)requiresMainQueueSetup
+{
+  return YES;
+}
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateHeading:(CLHeading *)newHeading {
     if (newHeading.headingAccuracy < 0)
         return;
